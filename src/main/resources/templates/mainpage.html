@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Default Title</title>
+    <link rel="stylesheet" th:href="@{/mainpage.css}">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Internet Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Cart (0)</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <h2 th:text="${title}">Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+
+                <h3>Product 1</h3>
+                <p>$10.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <h3>Product 2</h3>
+                <p>$15.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <h3>Product 3</h3>
+                <p>$20.00</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Internet Shop. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
