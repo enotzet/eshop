@@ -20,4 +20,12 @@ public class MainPage {
         model.addAttribute("goods", goods);
         return "mainpage";
     }
+    @GetMapping("/redirect/log_in")
+    public String log_inPage(Model model) {
+        return "log_in";
+    }
+    @GetMapping("/redirect/sign_up")
+    public String sign_upPage(Model model) {
+        return "sign_up";
+    }
 }

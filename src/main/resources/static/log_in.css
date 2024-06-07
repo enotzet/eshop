@@ -63,31 +63,65 @@ main {
     padding: 20px 0;
 }
 
-main .container {
-     width: 30%;
-     height: 200px;
-     border: 1px solid #ccc;
-     padding: 10px;
-     margin: 3%;
+.login-container {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin: 50px auto;
 }
 
-.product-grid {
-      margin-top: -10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333333;
 }
 
-.product-details h3 {
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+    position: relative;
 }
 
-.product-details p {
-    margin: 5px 0;
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333333;
 }
 
-.product-image {
-    width: 200px;
-    height: 200px;
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.toggle-password {
+    position: absolute;
+    z-index: 7;
+    right: 10px;
+    top: 35px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.login-button {
+    font-size: 16px;
+    background-color: lightgreen;
+    border: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #76c776;
 }
 
 footer {
