@@ -118,10 +118,28 @@ main {
     padding: 10px 20px;
     width: 100%;
     transition: background-color 0.3s;
+    margin-bottom: 10px;
 }
 
 .login-button:hover {
     background-color: #76c776;
+}
+
+.register-button {
+    font-size: 16px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
 }
 
 footer {
@@ -135,4 +153,8 @@ footer .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+#message {
+    color: red;
 }

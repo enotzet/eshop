@@ -10,17 +10,19 @@
 <body>
 <div class="login-container">
     <h2>Login</h2>
-    <form action="/login" method="post">
+    <form action="/log_in" method="post">
         <div class="input-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <label for="username">Email</label>
+            <input type="text" id="username" name="email" required th:value="${email}">
         </div>
         <div class="input-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required th:value="${password}">
             <img src="/photos/eye-icon.png" alt="Show Password" id="togglePassword" class="toggle-password">
         </div>
+        <p th:text="${message}" id = "message"><p>
         <button type="submit" class="login-button">Login</button>
+        <button type="button" class="register-button" onclick="window.location.href='/sign_up'">Register</button>
     </form>
 </div>
 </body>
