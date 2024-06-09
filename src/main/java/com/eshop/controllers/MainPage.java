@@ -1,6 +1,7 @@
 package com.eshop.controllers;
 
 import com.eshop.repo.goodsRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +15,8 @@ public class MainPage {
     @Autowired
     private goodsRepository goodsRepository;
     @GetMapping("/")
-    public String mainPage(Model model) {
+    public String mainPage(Model model, HttpSession session) {
         Iterable<goods> goods = goodsRepository.findAll();
-        model.addAttribute("title", "Mainpage");
         model.addAttribute("goods", goods);
         return "mainpage";
     }
@@ -27,5 +27,10 @@ public class MainPage {
     @GetMapping("/redirect/sign_up")
     public String sign_upPage(Model model) {
         return "sign_up";
+    }
+    @GetMapping("/logout")
+    public String log_out(Model model, HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
     }
 }

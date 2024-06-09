@@ -25,10 +25,13 @@ public class WebSecurityConfig {
                         .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .csrf().disable()  // Отключение CSRF-защиты
-                .formLogin().disable()  // Отключение формы логина
-                .httpBasic().disable();  // Отключение базовой аутентификации
-
+                .csrf().disable()
+                .formLogin().disable()
+                .httpBasic().disable()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/")
+                .permitAll();
         return http.build();
     }
 }

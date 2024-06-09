@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${title}">Default Title</title>
-    <link rel="stylesheet" th:href="@{/mainpage.css}">
+    <link rel="stylesheet" th:href="@{/css/mainpage.css}">
 </head>
 <body>
 <header th:insert="header::header"></header>
 <main>
-    <h2 th:text="${title}">Featured Products</h2>
-    <div class="container" th:each="el : ${goods}">
-        <div class="product-grid">
+    <div class="product-container" th:each="el : ${goods}">
+        <div class="product-card">
             <img class="product-image" th:src="@{/photos/} + ${el.photo}" alt="" th:alt="${el.name}">
             <div class="product-details">
                 <h3 th:text="${el.name}"></h3>
+                <span th:text="${el.description}" id="description-span">Description missing</span>
                 <p th:text="${el.price}+ ' $'"></p>
-                <button>Add to Cart</button>
+                <img th:if="${session.user != null} and ${el.count > 0}" id="buy-btn" th:src="@{/photos/cart.png}" alt="cart picture">
+                <p th:if="${session.user != null} and ${el.count <= 0}">Sorry, this product is currently unavailable</p>
             </div>
         </div>
     </div>

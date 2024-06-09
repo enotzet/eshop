@@ -3,21 +3,24 @@
             <h1>Internet Shop</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="#">Cart (0)</a></li>
                 </ul>
             </nav>
             <div id = "profile">
-                <form action="/redirect/log_in" method="get">
+                <form action="/redirect/log_in" method="get"th:if="${session.user == null}">
                     <button id="log_in">Log in</button>
                 </form>
-            <a>/</a>
-                <form action="/redirect/sign_up" method="get">
+                <a th:if="${session.user == null}">/</a>
+                <form action="/redirect/sign_up" method="get" th:if="${session.user == null}">
                     <button id="sign_up">Sign up</button>
                 </form>
-            </div>
+                <div class="dropdown" th:if="${session.user != null}">
+                    <a class="dropbtn" th:text="${session.user.email}"></a>
+                    <div class="dropdown-content">
+                        <a class = "dropdown-content-element" href="/profile">Edit Profile</a>
+                        <a class = "dropdown-content-element" id = "log-out-btn" href="/logout">Log out</a>
+                    </div>
+                </div>
         </div>
 </div>

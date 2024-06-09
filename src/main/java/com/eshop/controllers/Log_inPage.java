@@ -4,6 +4,7 @@ import com.eshop.model.goods;
 import com.eshop.model.users;
 import com.eshop.repo.goodsRepository;
 import com.eshop.repo.usersRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -27,11 +28,13 @@ public class Log_inPage {
     @PostMapping("/log_in")
     public String loginLogic(@RequestParam("email") String email,
                              @RequestParam("password") String password,
-                             Model model)
+                             Model model, HttpSession session)
     {
         users user = usersRepository.findByEmail(email);
-        if (user != null && bCryptPasswordEncoder.matches(password, user.getPassword()))
+        if (user != null && bCryptPasswordEncoder.matches(password, user.getPassword())) {
+            session.setAttribute("user", user);
             return "redirect:/";
+        }
         else
         {
             model.addAttribute("message","incorrect email or password");

@@ -11,7 +11,7 @@ public class goods {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name, description, photo;
-    private int price;
+    private int price, count;
 
     public int getId() {
         return id;
@@ -51,5 +51,12 @@ public class goods {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }

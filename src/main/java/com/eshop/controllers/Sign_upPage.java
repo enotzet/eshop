@@ -2,6 +2,7 @@ package com.eshop.controllers;
 
 import com.eshop.model.users;
 import com.eshop.repo.usersRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
@@ -29,7 +30,7 @@ public class Sign_upPage {
     public String sign_upLogic(@RequestParam("email") String email,
                              @RequestParam("password") String password,
                              @RequestParam("rep_password") String rep_password,
-                             Model model) {
+                             Model model, HttpSession session) {
         users user = usersRepository.findByEmail(email);
         if (user != null)
         {
@@ -58,6 +59,7 @@ public class Sign_upPage {
             user1.setEmail(email);
             user1.setPassword(bCryptPasswordEncoder.encode(password));
             usersRepository.save(user1);
+            session.setAttribute("user", user1);
             return "redirect:/";
         }
     }
