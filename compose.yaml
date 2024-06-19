@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_DATABASE: eshop
+    ports:
+      - "3306:3306"
+  
+  springboot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my_springboot_app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/eshop
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
